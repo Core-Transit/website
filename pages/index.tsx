@@ -330,7 +330,6 @@ export default function Home() {
           name: "Dubai",
           icon: "https://img.icons8.com/fluency/48/united-arab-emirates-circular.png"
         },
-        
       ],
       bgp: true,
       prefix: '/64, /48',
