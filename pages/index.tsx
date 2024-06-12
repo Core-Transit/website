@@ -339,6 +339,29 @@ export default function Home() {
       notes: "/64 on-link and /48 statically routed, BGP Fee of $500 on new Tunnelbroker connections.",
       asn: 6939,
     },
+    {
+      name: "Core Transit",
+      url: 'coretransit.net',
+      pop: [
+        {
+          name: "Dallas",
+          icon: "https://img.icons8.com/fluency/48/usa-circular.png"
+        },
+        {
+          name: "Los Angeles",
+          icon: "https://img.icons8.com/fluency/48/usa-circular.png"
+        }
+      ],
+      bgp: true,
+      prefix: '/56',
+      '6in4': true,
+      wireguard: true,
+      openvpn: false,
+      l2tp: true,
+      ipip: true,
+      notes: "Core Transit tunnels services are paid plans with the option to lease additional IPv4 and IPv6 address space.",
+      asn: 1097,
+    },
   ]
   useEffect(() => {
     ReactTooltip.rebuild();
@@ -409,6 +432,18 @@ export default function Home() {
                       <div className='flex flex-row gap-2 items-center bg-purple-600 p-1 px-2 font-medium'>
                         <img className='h-4 w-4' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADTElEQVR4nO2Yy0sXURTHJ7QXVguNXkgRarbTnmZpUBoU1saiXe6UXlBEuKqlrpKwB2T9AekmiCiSUHtso1ZpZAWZlUEZaZEm9Ykbd+p4+j3mN7/70xbzhdmcufP9njNz7jn3jOdFiBAhQoQIDgBkARVAM3Af6Ae+2Kvf2pqALWat978AmAnUAc8JjlfAMWD2dDu/PkXHNZ4B66bL+YPAmHJoCGgDaoBiIMdeq4Hd9p5ZIzEGNEy180eVEx+Bk8CcAM/OBRqBYcVxaKqc3w/8EMKPgPwQPMuBx4LHcO7LjNd/RZcAn4Roj0mRNPhygLvqSy526/VkwQ4hZkpjngPOPOCF4L3qxtt/hcxG/CmENjvkrhS8RqPYFbcUOStErmWA/7rgP+NlQOC9ENiWAf4qwT/kmnylIP8AZDsV8H5rZNtN7GOFS/JaQXzDGbECcFPo1HphAewArgBP7WFMoi00cXLdy0rLaPdZe3UQglXAPRLjVAYDOJ1E2/SMongPb43R3mMdvgoyGECh7S+JYPZJZaw3P6wOWK1AWTqd1kFAOdaH88C4CqJQLpRpMwiUpCjUbPP1DfDQduw6F53aB1BqffPRLTesfPOpOj8DGI3zuSeA9klvKw0Aa9SXqPJstfHRGpLYjIrfEuTtd6AFmOUgiAuCt82zpdLHxjRn4qVmwgKO25OqPHZjU3VhmgFsEnx9xjAiDPPSIY8hVgLcVkH0pxMEMF9wjXgqf50GIEQbbBr5eBA2nYAFguezTqGykKSyCt0BjujyC+yym9pHS0itcsHRq9v3uRCE8arQOz0iqlnaVJOUmyJwUXBcMoZqVUZLHVYhM5w0qrWd4n57ijprVRnd7t+Qc+lgyCBMFcoH6tW/IhPEXtWQ/Oo0AeSm4LxJUR9d8maROouP2/ZdHmZjm2eAW4LvrdwTqvMfSMJTbtNmXM0kBbHmUhlEMvQECOKlWH9Y3Dsh7B3CvieArnG+ItFpsDtgADvFczU29V6baqPKp49OYd8g7H2qbyRCV6CNb+dT8xuwN8E5Z5FYbxz3MaB+XvkYFPZlwj4i7LlKw2g/MdXmz4bNBBIEkCWq02gc+1dvumGblAliQKaWKLHmTTYFsUeIECFCBG8q8Qu/KDzuHIzrdQAAAABJRU5ErkJggg=="></img>
                         <span>BGP Supported</span>
+                      </div>
+                    )}
+                    {broker.l2tp && (
+                      <div className='flex flex-row gap-2 items-center bg-[#6C8BC6] p-0.5 px-1.5 font-medium'>
+                       <svg role="img" className='h-4 w-4 text-white fill-current' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Cloud</title><path d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" /></svg>
+                        <span>L2TP</span>
+                      </div>
+                    )}
+                    {broker.ipip && (
+                      <div className='flex flex-row gap-2 items-center bg-[#475498] p-0.5 px-1.5 font-medium'>
+                        <svg role="img" className='h-4 w-4 text-white fill-current' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Cloud</title><path d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" /></svg>
+                        <span>IPIP</span>
                       </div>
                     )}
                     <div className='flex flex-row gap-2 items-center bg-blue-600 p-1 px-2 font-medium'>
